@@ -89,8 +89,6 @@ const String System::EventNamespace("System");
 /*************************************************************************
 	Static Data Definitions
 *************************************************************************/
-// singleton instance pointer
-template<> System* Singleton<System>::ms_Singleton	= 0;
 // instance of class that can convert string encodings
 #if defined(__WIN32__) || defined(_WIN32)
 const Win32StringTranscoder System::d_stringTranscoder;

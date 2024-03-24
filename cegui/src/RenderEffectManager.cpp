@@ -30,10 +30,6 @@
 namespace CEGUI
 {
 //---------------------------------------------------------------------------//
-template<>
-RenderEffectManager* Singleton<RenderEffectManager>::ms_Singleton = 0;
-
-//---------------------------------------------------------------------------//
 RenderEffectManager::RenderEffectManager()
 {
     char addr_buff[32];

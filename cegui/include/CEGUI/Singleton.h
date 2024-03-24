@@ -60,11 +60,11 @@ protected:
 // TODO: This super-nasty piece of nastiness was put in for continued
 // TODO: compatability with MSVC++ and MinGW - the latter apparently
 // TODO: needs this.
-    static
+    inline static
 #ifdef __MINGW32__
     CEGUIEXPORT
 #endif
-    T* ms_Singleton;
+    T* ms_Singleton = nullptr;
 
 public:
     Singleton( void )

@@ -31,9 +31,6 @@
 namespace CEGUI
 {
 //----------------------------------------------------------------------------//
-template<> SchemeManager* Singleton<SchemeManager>::ms_Singleton = 0;
-
-//----------------------------------------------------------------------------//
 SchemeManager::SchemeManager() :
     NamedXMLResourceManager<Scheme, Scheme_xmlHandler>("Scheme"),
     

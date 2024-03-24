@@ -44,10 +44,6 @@
 namespace CEGUI
 {
 //----------------------------------------------------------------------------//
-// singleton instance pointer
-template<> FontManager* Singleton<FontManager>::ms_Singleton = 0;
-
-//----------------------------------------------------------------------------//
 FontManager::FontManager() :
     NamedXMLResourceManager<Font, Font_xmlHandler>("Font")
 {

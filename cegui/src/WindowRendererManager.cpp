@@ -35,7 +35,6 @@ namespace CEGUI
 /*************************************************************************
     Static data
 *************************************************************************/
-template<> WindowRendererManager* Singleton<WindowRendererManager>::ms_Singleton = 0;
 WindowRendererManager::OwnedFactoryList WindowRendererManager::d_ownedFactories;
 
 /*************************************************************************

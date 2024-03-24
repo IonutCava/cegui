@@ -42,10 +42,6 @@
 namespace CEGUI
 {
 //----------------------------------------------------------------------------//
-// singleton instance pointer
-template<> ImageManager* Singleton<ImageManager>::ms_Singleton = 0;
-
-//----------------------------------------------------------------------------//
 String ImageManager::d_imagesetDefaultResourceGroup;
 
 //----------------------------------------------------------------------------//

@@ -45,8 +45,6 @@ namespace CEGUI
 /*************************************************************************
 	Static Data Definitions
 *************************************************************************/
-// singleton instance pointer
-template<> WindowManager* Singleton<WindowManager>::ms_Singleton	= 0;
 // default resource group
 String WindowManager::d_defaultResourceGroup;
 

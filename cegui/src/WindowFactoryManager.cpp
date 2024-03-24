@@ -37,8 +37,6 @@ namespace CEGUI
 /*************************************************************************
 	Static Data Definitions
 *************************************************************************/
-// singleton instance pointer
-template<> WindowFactoryManager* Singleton<WindowFactoryManager>::ms_Singleton	= 0;
 // list of owned WindowFactory object pointers
 WindowFactoryManager::OwnedWindowFactoryList WindowFactoryManager::d_ownedFactories;
 
