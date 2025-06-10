@@ -719,7 +719,7 @@ if( CEGUI_INSTALL_PKGCONFIG )
 endif()
 
 # Activating the default multi-processor build setting for all Visual Studio versions
-if (MSVC)
+if (MSVC AND NOT (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 endif()
 
