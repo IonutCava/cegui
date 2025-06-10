@@ -314,8 +314,7 @@ endif ()
 option (CEGUI_WARNINGS_AS_ERRORS "Specifies whether to treat warnings as errors. Recommended if you're developing CEGUI itself." OFF)
 
 set (CEGUI_EXTRA_FLAGS "")
-
-if (CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
+if (NOT WIN32 AND (CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")))
     set (CEGUI_EXTRA_FLAGS "${CEGUI_EXTRA_FLAGS} -fsigned-char")
 endif ()
 
