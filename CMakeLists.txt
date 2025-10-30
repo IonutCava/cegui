@@ -1,14 +1,7 @@
 ################################################################################
 # Top-level CMakeLists.txt file for Crazy Eddie's GUI System
 ################################################################################
-cmake_minimum_required(VERSION 3.1)
-if (POLICY CMP0017)
-    cmake_policy(SET CMP0017 OLD)
-endif()
-
-if (POLICY CMP0045)
-    cmake_policy(SET CMP0045 OLD)
-endif()
+cmake_minimum_required(VERSION 3.29.2)
 
 if (APPLE AND NOT CMAKE_OSX_ARCHITECTURES)
     set( CMAKE_OSX_ARCHITECTURES x86_64 CACHE STRING "Build architectures for Mac OS X")
