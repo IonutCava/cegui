@@ -49,7 +49,7 @@
 #endif
 
 #ifdef _MSC_VER
-    #define snprintf _snprintf
+    //#define snprintf _snprintf
 #endif
 
 #ifdef __MINGW32__
