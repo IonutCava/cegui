@@ -146,16 +146,25 @@ find_package(PVRTools)
 
 find_package(Lua51)
 find_package(TOLUAPP)
-find_package(PythonInterp)
 
-## ensure python3 not picked up as default
-find_package(PythonVersion)
-if (UNIX AND PYTHON_VERSION_FOUND)
-  find_package(PythonLibs ${PYTHON_VERSION_STRING} EXACT)
-else()
-  find_package(PythonLibs)
+if (CEGUI_BUILD_PYTHON_MODULES)
+    find_package(PythonInterp)
+    find_package(Boost 1.36.0 COMPONENTS python)
+
+    ## ensure python3 not picked up as default
+    find_package(PythonVersion)
+    if (UNIX AND PYTHON_VERSION_FOUND)
+      find_package(PythonLibs ${PYTHON_VERSION_STRING} EXACT)
+    else()
+      find_package(PythonLibs)
+    endif()
 endif()
-find_package(Boost 1.36.0 COMPONENTS python unit_test_framework system timer)
+
+if (CEGUI_BUILD_TESTS OR CEGUI_BUILD_PERFORMANCE_TESTS)
+    find_package(Boost 1.36.0 COMPONENTS unit_test_framework timer)
+endif()
+
+find_package(Boost 1.36.0 COMPONENTS system)
 
 find_package(Doxygen)
 find_package(GTK2 COMPONENTS gtk)
