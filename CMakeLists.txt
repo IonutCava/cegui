@@ -1,14 +1,7 @@
 ################################################################################
 # Top-level CMakeLists.txt file for Crazy Eddie's GUI System
 ################################################################################
-cmake_minimum_required(VERSION 3.1)
-if (POLICY CMP0017)
-    cmake_policy(SET CMP0017 OLD)
-endif()
-
-if (POLICY CMP0045)
-    cmake_policy(SET CMP0045 OLD)
-endif()
+cmake_minimum_required(VERSION 3.29.2)
 
 if (APPLE AND NOT CMAKE_OSX_ARCHITECTURES)
     set( CMAKE_OSX_ARCHITECTURES x86_64 CACHE STRING "Build architectures for Mac OS X")
@@ -72,15 +65,15 @@ if ((WIN32 OR APPLE) AND NOT CMAKE_PREFIX_PATH)
 endif()
 
 if (CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
-    set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
-    set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++03")
+    #set (CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99")
+    #set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++03")
     add_compile_options(-Wno-reserved-macro-identifier)
     add_compile_options(-Wno-documentation)
     add_compile_options(-Wno-suggest-override)
     add_compile_options(-Wno-exit-time-destructors)
 elseif (NOT CMAKE_VERSION VERSION_LESS "3.1")
-    set (CMAKE_C_STANDARD_REQUIRED TRUE)
-    set (CMAKE_C_STANDARD "99")
+    #set (CMAKE_C_STANDARD_REQUIRED TRUE)
+    #set (CMAKE_C_STANDARD "99")
 endif ()
 
 # Look for packages
@@ -323,8 +316,7 @@ endif ()
 option (CEGUI_WARNINGS_AS_ERRORS "Specifies whether to treat warnings as errors. Recommended if you're developing CEGUI itself." OFF)
 
 set (CEGUI_EXTRA_FLAGS "")
-
-if (CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
+if (NOT WIN32 AND (CMAKE_COMPILER_IS_GNUCXX OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang")))
     set (CEGUI_EXTRA_FLAGS "${CEGUI_EXTRA_FLAGS} -fsigned-char")
 endif ()
 
@@ -729,7 +721,7 @@ if( CEGUI_INSTALL_PKGCONFIG )
 endif()
 
 # Activating the default multi-processor build setting for all Visual Studio versions
-if (MSVC)
+if (MSVC AND NOT (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /MP")
 endif()
 

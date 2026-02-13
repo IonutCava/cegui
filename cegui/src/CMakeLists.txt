@@ -95,7 +95,7 @@ if (CEGUI_HAS_MINIZIP_RESOURCE_PROVIDER)
 endif ()
 
 if (WIN32 AND NOT MINGW)
-    cegui_target_link_libraries(${CEGUI_TARGET_NAME} winmm debug DbgHelp)
+    # cegui_target_link_libraries(${CEGUI_TARGET_NAME} winmm debug DbgHelp)
 elseif (UNIX AND NOT APPLE)
     # This is intentionally not using 'cegui_target_link_libraries'
     target_link_libraries(${CEGUI_TARGET_NAME} ${CMAKE_DL_LIBS})
