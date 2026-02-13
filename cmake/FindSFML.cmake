@@ -350,7 +350,7 @@ elseif(SFML_STATIC_LIBRARIES AND FIND_SFML_DEPENDENCIES_NOTFOUND)
     set(SFML_FOUND FALSE)
 elseif(NOT SFML_FOUND)
     # include directory or library not found
-    set(FIND_SFML_ERROR "Could NOT find SFML (missing: ${FIND_SFML_MISSING})")
+    set(FIND_SFML_ERROR "-- Could NOT find SFML (missing: ${FIND_SFML_MISSING})")
 endif()
 if (NOT SFML_FOUND)
     if(SFML_FIND_REQUIRED)
